@@ -9,6 +9,8 @@ Topology::Topology(const json& topologyData) {
     if(topologyData.contains("components")) {
         for(const auto &componentJSON: topologyData.at("components")) {
             componentsContainer.push_back(makeComponent(componentJSON));
+            int currentIndex = componentsContainer.size() - 1;
+            monitorNetlist(componentsContainer[currentIndex] -> getNetlist(), currentIndex);
         }
     }
 }
@@ -47,3 +49,16 @@ Component::ComponentPtr Topology::makeComponent(const json& componentData) {
     return Component::ComponentPtr();
 }
 
+
+void Topology::monitorNetlist(const Netlist &netlist, int componentIndex) {
+    for(const auto &node: netlist.getNodes())
+        connectedNodes[node].push_back(componentIndex);
+}
+
+Component::ComponentList Topology::getConnectedComponent(std::string nodeName) const {
+    Component::ComponentList out;
+
+    for(const auto &componentIdx: connectedNodes.at(nodeName)) 
+        out.push_back(std::unique_ptr<Component>(componentsContainer[componentIdx] -> clone()));
+    return out;
+}

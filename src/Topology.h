@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <memory>
+#include <map>
 #include "JSONify.h"
 #include "./Components/Resistor.h"
 #include "./Components/Nmos.h"
@@ -12,8 +13,11 @@ class Topology : public JSONify
 {
 private:
     std::string id;
+    std::map<std::string, std::vector<int>> connectedNodes;
     Component::ComponentList componentsContainer;
     Component::ComponentPtr makeComponent(const json& componentData);
+    // Keep track of which components are connected through netlist nodes
+    void monitorNetlist(const Netlist& netlist, int componentIndex);
 public:
     typedef std::unique_ptr<Topology> TopologyPtr;
     typedef std::vector<Topology> TopologyList;
@@ -22,7 +26,7 @@ public:
     // Get Components in topology
     Component::ComponentList getComponents() const;
     // Get Components connected to node in netlist
-    // Component::ComponentList getConnectedComponent(std::string nodeName);
+    Component::ComponentList getConnectedComponent(std::string nodeName) const;
     // Get topology Id
     std::string getId() const;
 
