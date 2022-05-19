@@ -25,13 +25,14 @@ bool TopologyManager::isTopologyExist(std::string topologyId) {
     return topologyMap.find(topologyId) != topologyMap.end();
 }
 
-// Topology::TopologyList TopologyManager::queryTopologies() const {
-//     Topology::TopologyList list;
+Topology::TopologyList TopologyManager::queryTopologies() const {
+    Topology::TopologyList list;
     
-//     for(const auto &topologyGroup: topologyMap)
-//         list.push_back(topologyGroup.second);
-//     return list;
-// }
+    for(const auto &topologyGroup: topologyMap)
+        list.push_back(topologyGroup.second);
+    return list;
+}
+
 Component::ComponentList TopologyManager::queryComponents(std::string topologyId) const{
     return topologyMap.at(topologyId).getComponents();
 }

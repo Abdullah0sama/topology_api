@@ -24,7 +24,7 @@ public:
     // Checking if topology is stored 
     bool isTopologyExist(std::string topologyId);
     // Get stored topologies
-    // Topology::TopologyList queryTopologies() const;
+    Topology::TopologyList queryTopologies() const;
     // Get components of specified topology
     Component::ComponentList queryComponents(std::string topologyId) const;
     // Get components connected to a specified node in topology
