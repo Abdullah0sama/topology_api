@@ -14,6 +14,14 @@ Topology::Topology(const json& topologyData) {
         }
     }
 }
+
+Topology::Topology(const Topology& topology) {
+    id = topology.id;
+    connectedNodes = topology.connectedNodes;
+    for(const auto& component: componentsContainer) 
+        componentsContainer.push_back(std::unique_ptr<Component>(component -> clone()));
+}
+
 std::string Topology::getId() const {
     return id;
 }
