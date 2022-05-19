@@ -1,19 +1,27 @@
-#include <vector>
+#if !defined(COMPONENT)
+#define COMPONENT
 
-class Component
+
+#include <vector>
+#include <memory>
+#include "Range.h"
+#include "./JSONify.h"
+
+class Component : JSONify
 {
 private:
-    /* data */
+    std::string id;
+    std::string rangeName;
+    std::unique_ptr<Range> valueRange;
+
 public:
     typedef std::vector<Component> ComponentList; 
-    Component(/* args */);
-    ~Component();
+    
+    // Get range of allowed values of component
+    virtual Range getRange() = 0;
+    // Get component Id
+    std::string getId() const;
 };
 
-Component::Component(/* args */)
-{
-}
+#endif // COMPONENT
 
-Component::~Component()
-{
-}
