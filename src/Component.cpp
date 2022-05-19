@@ -1,7 +1,7 @@
 #include "./Component.h"
 
 
-Component::Component(json componentData) {
+Component::Component(const json& componentData) {
     if(!componentData.contains("id"))
         throw std::invalid_argument("'id' is missing");
     id = componentData["id"];

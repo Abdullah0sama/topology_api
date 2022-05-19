@@ -10,7 +10,7 @@ private:
     static const std::string RANGENAME;
 public:
     static const std::string TYPE;
-    Resistor(json componentData);
+    Resistor(const json& componentData);
     Range getRange() const;
     virtual json getJSON() const;
 };

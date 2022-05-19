@@ -15,7 +15,7 @@ Range::Range(int max, int min, int default_value) {
 }
 
 
-Range::Range(json rangeData) {
+Range::Range(const json& rangeData) {
     if(!rangeData.contains("max"))
         throw std::invalid_argument("'max' value is missing");
     if(!rangeData.contains("min"))

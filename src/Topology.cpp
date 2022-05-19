@@ -1,8 +1,6 @@
 #include "./Topology.h"
 
-#include"iostream"
-using namespace std;
-Topology::Topology(json topologyData) {
+Topology::Topology(const json& topologyData) {
 
     if(!topologyData.contains("id"))
         throw std::invalid_argument("'id' is missing");
@@ -19,9 +17,10 @@ std::string Topology::getId() const {
 }
 
 
-Component::ComponentPtr Topology::makeComponent(json componentData) {
+Component::ComponentPtr Topology::makeComponent(const json& componentData) {
     if(!componentData.contains("type"))
-        throw invalid_argument("'type' of component is missing");
+        throw std::invalid_argument("'type' of component is missing");
+        
     std::string type = componentData.at("type");
     if(type == Resistor::TYPE) 
         return std::make_unique<Resistor>(componentData);

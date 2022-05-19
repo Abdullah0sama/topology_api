@@ -14,7 +14,7 @@ private:
     void initializeValues(int max, int min, int default_value);
 public:
     Range(int max, int min, int default_value);
-    Range(json rangeData);
+    Range(const json& rangeData);
 
     int getMax() const;
     int getMin() const;

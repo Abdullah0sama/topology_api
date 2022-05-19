@@ -19,7 +19,7 @@ protected:
 public:
     typedef std::unique_ptr<Component> ComponentPtr;
     typedef std::vector<ComponentPtr> ComponentList; 
-    Component(json componentData);
+    Component(const json& componentData);
     virtual json getJSON() const = 0;
     // Get range of allowed values of component
     virtual Range getRange() const = 0;
