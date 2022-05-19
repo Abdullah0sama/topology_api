@@ -8,11 +8,7 @@ Netlist::Netlist(const std::vector<std::string> &pinNames, const std::vector<std
         nodes[pinNames[i]] = nodeNames[i];
     }
 }
-void Netlist::setNodeName(std::string pinName, std::string nodeName) {
-    if(nodes.find(pinName) == nodes.end())
-        throw std::invalid_argument("pin name: '" + pinName + "' is not present in the netlist");
-    nodes[pinName] = nodeName;
-}
+
 std::vector<std::string> Netlist::getNodes() const {
     std::vector<std::string> nodeNames;
     for(const auto &pair: nodes)
