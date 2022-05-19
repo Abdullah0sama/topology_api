@@ -1,20 +1,25 @@
+#if !defined(TOPOLOGY)
+#define TOPOLOGY
 
 #include <vector>
-
-class Topology
+#include <string>
+#include "JSONify.h"
+#include "./Components/Resistor.h"
+class Topology : public JSONify
 {
 private:
-    /* data */
+    std::string id;
+    Component::ComponentList componentsContainer;
+    Component::ComponentPtr makeComponent(json componentData);
 public:
     typedef std::vector<Topology> TopologyList;
-    Topology(/* args */);
-    ~Topology();
+    Topology(json topologyData);
+    // Get topology Id
+    std::string getId() const;
+
+    json getJSON() const;
 };
 
-Topology::Topology()
-{
-}
 
-Topology::~Topology()
-{
-}
+#endif // TOPOLOGY
+

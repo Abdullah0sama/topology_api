@@ -1,6 +1,9 @@
 #include "./Resistor.h"
 
 
+const std::string Resistor::RANGENAME = "resistance";
+const std::string Resistor::TYPE = "resistor";
+
 Resistor::Resistor(json componentData): Component(componentData) {
     if(!componentData.contains(RANGENAME))
         throw std::invalid_argument("'" + RANGENAME + "' range values are missing");
