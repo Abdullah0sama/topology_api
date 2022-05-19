@@ -7,6 +7,7 @@ class Nmos : public Component
 {
 private:
     static const std::string RANGENAME;
+    static const std::vector<std::string> PIN_NAMES;
 public:
     static const std::string TYPE;
 
