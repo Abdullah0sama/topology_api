@@ -25,8 +25,10 @@ public:
     bool isTopologyExist(std::string topologyId);
     // Get stored topologies
     // Topology::TopologyList queryTopologies() const;
-    // Component::ComponentList queryComponents(int topologyId) const;
-    // Component::ComponentList queryComponentsWithNetListNode(int topologyId, std::string netlistNodeId) const;
+    // Get components of specified topology
+    Component::ComponentList queryComponents(std::string topologyId) const;
+    // Get components connected to a specified node in topology
+    Component::ComponentList queryComponentsWithNetListNode(std::string topologyId, std::string netlistNodeId) const;
 };
 
 #endif // TOPOLOGY_MANAGER

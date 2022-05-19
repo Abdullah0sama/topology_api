@@ -29,6 +29,13 @@ bool TopologyManager::isTopologyExist(std::string topologyId) {
 //     Topology::TopologyList list;
     
 //     for(const auto &topologyGroup: topologyMap)
-//         topologyGroup.second.getComponents();
+//         list.push_back(topologyGroup.second);
 //     return list;
 // }
+Component::ComponentList TopologyManager::queryComponents(std::string topologyId) const{
+    return topologyMap.at(topologyId).getComponents();
+}
+
+Component::ComponentList TopologyManager::queryComponentsWithNetListNode(std::string topologyId, std::string netlistNodeId) const {
+    return topologyMap.at(topologyId).getConnectedComponent(netlistNodeId);
+}
