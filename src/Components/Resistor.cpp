@@ -21,3 +21,7 @@ json Resistor::getJSON() const {
     };
     return out;
 }
+
+Resistor* Resistor::clone() const {
+    return new Resistor(*this);
+}

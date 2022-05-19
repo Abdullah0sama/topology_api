@@ -7,6 +7,11 @@ Component::Component(const json& componentData) {
     id = componentData["id"];
     
 }
+Component::Component(const Component &component) {
+    this -> id = component.id;
+    valueRange = std::make_unique<Range>(*component.valueRange);
+    netlist = std::make_unique<Netlist>(*component.netlist);
+}
 std::string Component::getId() const {
     return id;
 }

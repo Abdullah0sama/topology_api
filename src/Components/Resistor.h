@@ -12,6 +12,7 @@ public:
     static const std::string TYPE;
     Resistor(const json& componentData);
     virtual json getJSON() const;
+    virtual Resistor* clone() const;
 };
 
 #endif // RESISTOR_COMP

@@ -13,6 +13,7 @@ public:
 
     Nmos(const json &componentData);
     virtual json getJSON() const;
+    virtual Nmos* clone() const;
 };
 
 

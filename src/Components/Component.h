@@ -25,6 +25,7 @@ public:
     typedef std::unique_ptr<Component> ComponentPtr;
     typedef std::vector<ComponentPtr> ComponentList; 
     Component(const json& componentData);
+    Component(const Component& component);
     virtual json getJSON() const = 0;
     // Get component Id
     std::string getId() const;
@@ -32,6 +33,8 @@ public:
     Range getRange() const;
     // Get netlist
     Netlist getNetlist() const;
+    // Clone object
+    virtual Component* clone() const = 0;
 };
 
 #endif // COMPONENT

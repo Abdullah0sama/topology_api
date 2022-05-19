@@ -20,3 +20,7 @@ json Nmos::getJSON() const {
     };
     return out;
 }
+
+Nmos* Nmos::clone() const {
+    return new Nmos(*this);
+}
