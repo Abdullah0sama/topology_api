@@ -8,7 +8,7 @@
 #include <vector>
 #include "map"
 #include "./Topology.h"
-#include "./Component.h"
+#include "./Components/Component.h"
 
 class TopologyManager
 {
@@ -23,6 +23,7 @@ public:
     void deleteTopology(std::string topologyId);
     // Checking if topology is stored 
     bool isTopologyExist(std::string topologyId);
+    // Get stored topologies
     // Topology::TopologyList queryTopologies() const;
     // Component::ComponentList queryComponents(int topologyId) const;
     // Component::ComponentList queryComponentsWithNetListNode(int topologyId, std::string netlistNodeId) const;

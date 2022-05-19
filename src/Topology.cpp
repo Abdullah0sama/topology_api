@@ -27,6 +27,14 @@ json Topology::getJSON() const {
     return out;
 }
 
+Component::ComponentList Topology::getComponents() const {
+    Component::ComponentList out;
+    for(const auto &component: componentsContainer) {
+        out.push_back(std::unique_ptr<Component>(component -> clone()));
+    }
+    return out;
+}
+
 Component::ComponentPtr Topology::makeComponent(const json& componentData) {
     if(!componentData.contains("type"))
         throw std::invalid_argument("'type' of component is missing");
@@ -34,6 +42,8 @@ Component::ComponentPtr Topology::makeComponent(const json& componentData) {
     std::string type = componentData.at("type");
     if(type == Resistor::TYPE) 
         return std::make_unique<Resistor>(componentData);
+    else if(type == Nmos::TYPE)
+        return std::make_unique<Nmos>(componentData);    
     return Component::ComponentPtr();
 }
 

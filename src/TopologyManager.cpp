@@ -1,5 +1,6 @@
 #include "./TopologyManager.h"
 
+#include <iostream>
 void TopologyManager::readJSON(std::string filename) {
     std::ifstream inStream(filename);
     if(inStream.fail()) {
@@ -23,3 +24,11 @@ void TopologyManager::deleteTopology(std::string topologyId) {
 bool TopologyManager::isTopologyExist(std::string topologyId) {
     return topologyMap.find(topologyId) != topologyMap.end();
 }
+
+// Topology::TopologyList TopologyManager::queryTopologies() const {
+//     Topology::TopologyList list;
+    
+//     for(const auto &topologyGroup: topologyMap)
+//         topologyGroup.second.getComponents();
+//     return list;
+// }
