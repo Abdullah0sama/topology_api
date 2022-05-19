@@ -16,6 +16,16 @@ std::string Topology::getId() const {
     return id;
 }
 
+json Topology::getJSON() const {
+    json out = {
+        {"id", getId()}
+    };
+    
+    for(const auto &componet: componentsContainer)
+        out["components"].push_back(componet -> getJSON());
+
+    return out;
+}
 
 Component::ComponentPtr Topology::makeComponent(const json& componentData) {
     if(!componentData.contains("type"))
