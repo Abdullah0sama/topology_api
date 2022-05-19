@@ -1,3 +1,6 @@
+#if !defined(RANGE)
+#define RANGE
+
 
 #include <stdexcept>
 #include "./JSONify.h"
@@ -15,4 +18,7 @@ public:
     int getDefault() const;
     json getJSON() const;
 };
+
+#endif // RANGE
+
 

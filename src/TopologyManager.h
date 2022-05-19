@@ -1,3 +1,8 @@
+#if !defined(TOPOLOGY_MANAGER)
+#define TOPOLOGY_MANAGER
+
+
+
 #include <string>
 #include <vector>
 #include "./Topology.h"
@@ -17,3 +22,5 @@ public:
     Component::ComponentList queryComponentsWithNetListNode(int topologyId, std::string netlistNodeId) const;
     ~TopologyManager();
 };
+
+#endif // TOPOLOGY_MANAGER
