@@ -8,17 +8,17 @@
 class Range : public JSONify
 {
 private:
-    int min;
-    int max;
-    int default_value;
-    void initializeValues(int max, int min, int default_value);
+    double min;
+    double max;
+    double default_value;
+    void initializeValues(double max, double min, double default_value);
 public:
-    Range(int max, int min, int default_value);
+    Range(double max, double min, double default_value);
     Range(const json& rangeData);
 
-    int getMax() const;
-    int getMin() const;
-    int getDefault() const;
+    double getMax() const;
+    double getMin() const;
+    double getDefault() const;
     json getJSON() const;
 };
 
