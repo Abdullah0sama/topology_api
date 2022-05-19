@@ -15,3 +15,11 @@ void TopologyManager::writeJSON(std::string filename, std::string topologyId) {
     std::ofstream outStream(filename); 
     outStream << std::setw(1) << topologyMap.at(topologyId).getJSON() << std::endl;
 }
+
+void TopologyManager::deleteTopology(std::string topologyId) {
+    topologyMap.erase(topologyId);
+}
+
+bool TopologyManager::isTopologyExist(std::string topologyId) {
+    return topologyMap.find(topologyId) != topologyMap.end();
+}

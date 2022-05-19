@@ -19,8 +19,11 @@ public:
     void readJSON(std::string filename);
     // Writing topology json to file
     void writeJSON(std::string filename, std::string topologyId);
+    // Deleting stored topology
+    void deleteTopology(std::string topologyId);
+    // Checking if topology is stored 
+    bool isTopologyExist(std::string topologyId);
     // Topology::TopologyList queryTopologies() const;
-    // void deleteTopology(int topologyId);
     // Component::ComponentList queryComponents(int topologyId) const;
     // Component::ComponentList queryComponentsWithNetListNode(int topologyId, std::string netlistNodeId) const;
 };
