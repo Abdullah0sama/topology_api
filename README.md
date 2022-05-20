@@ -45,5 +45,6 @@ Provide the functionality to access, manage and store device topologies.
   cmake --build build
   ./build/bin/unit_tests
 ```
-  
+## ToDo list:
+  - Make alternative ways to construct 'Component' class without the need of JSON
   
