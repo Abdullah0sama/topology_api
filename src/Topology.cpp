@@ -18,7 +18,7 @@ Topology::Topology(const json& topologyData) {
 Topology::Topology(const Topology& topology) {
     id = topology.id;
     connectedNodes = topology.connectedNodes;
-    for(const auto& component: componentsContainer) 
+    for(const auto& component: topology.componentsContainer) 
         componentsContainer.push_back(std::unique_ptr<Component>(component -> clone()));
 }
 
