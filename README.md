@@ -7,8 +7,8 @@ Provide the functionality to access, manage and store device topologies.
 
     Component <|-- Resistor
     Component <|-- Nmos
-    Component "1" *-- "*" Range
-    Component "1" *-- "*" Netlist
+    Component "1" *-- "1" Range
+    Component "1" *-- "1" Netlist
     Topology "1" *-- "*" Component
     TopologyManager "1" *-- "*" Topology
 
