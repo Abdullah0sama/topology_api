@@ -15,10 +15,10 @@ Provide the functionality to access, manage and store device topologies.
     class JSONify
     <<interface>> JSONify
     JSONify : +getJSON() json
-    Component <|-- JSONify
-    Topology <|-- JSONify
-    Range <|-- JSONify
-    Netlist <|-- JSONify
+    JSONify <|.. Netlist
+    JSONify <|.. Range
+    JSONify <|.. Component
+    JSONify <|.. Topology
 ```
 
 
