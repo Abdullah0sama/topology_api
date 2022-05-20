@@ -4,13 +4,6 @@ Provide the functionality to access, manage and store device topologies.
 ## Design hierarchy
 ```mermaid
   classDiagram
-    class JSONify
-    <<interface>> JSONify
-    JSONify : +getJSON() json
-    Component <|-- JSONify
-    Topology <|-- JSONify
-    Range <|-- JSONify
-    Netlist <|-- JSONify
 
     Component <|-- Resistor
     Component <|-- Nmos
@@ -19,6 +12,13 @@ Provide the functionality to access, manage and store device topologies.
     Topology "1" *-- "*" Component
     TopologyManager "1" *-- "*" Topology
 
+    class JSONify
+    <<interface>> JSONify
+    JSONify : +getJSON() json
+    Component <|-- JSONify
+    Topology <|-- JSONify
+    Range <|-- JSONify
+    Netlist <|-- JSONify
 ```
 
 
