@@ -1,6 +1,27 @@
 # topology_api
 Provide the functionality to access, manage and store device topologies.
 
+## Design hierarchy
+```mermaid
+  classDiagram
+    class JSONify
+    <<interface>> JSONify
+    JSONify : +getJSON() json
+    Component <|-- JSONify
+    Topology <|-- JSONify
+    Range <|-- JSONify
+    Netlist <|-- JSONify
+
+    Component <|-- Resistor
+    Component <|-- Nmos
+    Component "1" *-- "*" Range
+    Component "1" *-- "*" Netlist
+    Topology "1" *-- "*" Component
+    TopologyManager "1" *-- "*" Topology
+
+```
+
+
 ## TopologyManager
   It manages topologies stored in memory 
   - It can read from and write to JSON.
