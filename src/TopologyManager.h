@@ -23,6 +23,8 @@ public:
     void deleteTopology(std::string topologyId);
     // Checking if topology is stored 
     bool isTopologyExist(std::string topologyId);
+    // Get topology from manager
+    Topology getTopology(std::string topologyId);
     // Get stored topologies
     Topology::TopologyList queryTopologies() const;
     // Get components of specified topology

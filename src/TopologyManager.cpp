@@ -40,3 +40,7 @@ Component::ComponentList TopologyManager::queryComponents(std::string topologyId
 Component::ComponentList TopologyManager::queryComponentsWithNetListNode(std::string topologyId, std::string netlistNodeId) const {
     return topologyMap.at(topologyId).getConnectedComponent(netlistNodeId);
 }
+
+Topology TopologyManager::getTopology(std::string topologyId) {
+    return topologyMap.at(topologyId);
+}
